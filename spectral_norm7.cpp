@@ -18,7 +18,7 @@ double dot_product2(int n, double u[], double v[])
     return w;
 }
 
-void matmul2(int n, double v[], double **A, double u[])
+void matmul2(int n, double v[], double A[], double u[])
 {
     int i, j;
     for (i = 0; i < n; i++) {
@@ -26,13 +26,13 @@ void matmul2(int n, double v[], double **A, double u[])
     }
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
-            u[i] += A[j][i] * v[j];
+            u[i] += A[j*n+i] * v[j];
         }
     }
 }
 
 
-void matmul3(int n, double **A, double v[], double u[])
+void matmul3(int n, double A[], double v[], double u[])
 {
     int i, j;
     for (i = 0; i < n; i++) {
@@ -40,12 +40,12 @@ void matmul3(int n, double **A, double v[], double u[])
     }
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
-            u[i] += A[i][j] * v[j];
+            u[i] += A[i*n+j] * v[j];
         }
     }
 }
 
-void AvA(int n, double **A, double v[], double u[])
+void AvA(int n, double A[], double v[], double u[])
 {
     double tmp[n];
     matmul3(n, A, v, tmp);
@@ -55,16 +55,14 @@ void AvA(int n, double **A, double v[], double u[])
 
 double spectral_game(int n)
 {
-    double **A, u[n], v[n];
-    A = (double **)malloc(n*sizeof(double *));
+    double *A, u[n], v[n];
+    A = (double *)malloc(n*n*sizeof(double));
+
     int i, j;
-    for (i = 0; i < n; i++) {
-        A[i] = (double *)malloc(n*sizeof(double));
-    }
 
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
-            A[i][j] = Ac(i, j);
+            A[i*n+j] = Ac(i, j);
         }
     }
 
