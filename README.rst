@@ -21,6 +21,8 @@ As compared to the shootout.alioth.debian.org:
 * `spectral_norm3.f90`: Fortran Intel #2
 * `spectral_norm4.cpp`: C++ GNU g++ #6 (removed openmp)
 * `spectral_norm5.cpp`: C++ GNU g++ #2 (removed openmp)
+* `spectral_norm6.f90`: Like `spectral_norm2`, but does not use the
+  Fortran builtin routines `matmul` and `dot_product`
 
 Compile
 -------
