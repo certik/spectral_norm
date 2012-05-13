@@ -1,7 +1,7 @@
 F90 = gfortran
 CPP = g++
 # Common flags used for both g++ and gfortran
-GCCFLAGS = -Wall -Wextra -fPIC -O3 -march=native -ffast-math -funroll-loops
+GCCFLAGS = -Wall -Wextra -fPIC -O3 -g -msse2 -march=native -ffast-math -funroll-loops -fomit-frame-pointer -fstrict-aliasing
 # Specific g++ and gfortran flags
 F90FLAGS = $(GCCFLAGS) -Wimplicit-interface
 CPPFLAGS = $(GCCFLAGS)
