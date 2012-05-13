@@ -12,7 +12,7 @@ CPPFLAGS = $(GCCFLAGS)
 %.o: %.cpp
 	$(CPP) $(CPPFLAGS) -c $<
 
-all: spectral_norm1 spectral_norm2 spectral_norm3 spectral_norm4 spectral_norm5 spectral_norm6
+all: spectral_norm1 spectral_norm2 spectral_norm3 spectral_norm4 spectral_norm5 spectral_norm6 spectral_norm7
 
 spectral_norm1: spectral_norm1.o
 	$(F90) -o $@ $<
@@ -32,6 +32,9 @@ spectral_norm5: spectral_norm5.o
 spectral_norm6: spectral_norm6.o
 	$(F90) -o $@ $<
 
+spectral_norm7: spectral_norm7.o
+	$(CPP) -o $@ $<
+
 test:
 	@echo "spectral_norm1"
 	time ./spectral_norm1 5500
@@ -45,3 +48,5 @@ test:
 	time ./spectral_norm5 5500
 	@echo "spectral_norm6"
 	time ./spectral_norm6 5500
+	@echo "spectral_norm7"
+	time ./spectral_norm7 5500
