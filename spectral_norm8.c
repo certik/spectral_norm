@@ -116,7 +116,12 @@ double spectral_game(int n)
 
 int main(int argc, char *argv[]) {
     int i, N = ((argc >= 2) ? atoi(argv[1]) : 2000);
+    // Pedro's original version:
+    /*
     for ( i = 0 ; i < 10 ; i++ )
         printf("%.9f\n", spectral_game(N));
+    */
+    // We just use one loop to be compatible with the other implementations:
+    printf("%.9f\n", spectral_game(N));
     return 0;
 }
