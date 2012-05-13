@@ -26,7 +26,7 @@ void matmul2(int n, double v[], double A[], double u[])
     }
     for (i = 0; i < n; i++) {
         for (j = 0; j < n; j++) {
-            u[i] += A[j*n+i] * v[j];
+            u[j] += A[i*n+j] * v[i];
         }
     }
 }
