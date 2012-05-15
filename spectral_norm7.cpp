@@ -31,18 +31,13 @@ void matmul2(int n, double v[], double A[], double u[])
     }
 }
 
-
 void matmul3(int n, double A[], double v[], double u[])
 {
-    int i, j;
-    for (i = 0; i < n; i++) {
-        u[i] = 0;
-    }
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) {
-            u[i] += A[i*n+j] * v[j];
-        }
-    }
+    int i;
+
+    for (i = 0; i < n; i++)
+        u[i] = dot_product2( n , &A[i*n] , v );
+
 }
 
 void AvA(int n, double A[], double v[], double u[])
